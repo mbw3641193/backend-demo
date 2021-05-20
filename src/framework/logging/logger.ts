@@ -9,7 +9,6 @@ export class Logger extends NestLogger implements LoggerService {
         isTimeDiffEnabled?: boolean | undefined
     ) {
         logger(`[${context}]`).error(message);
-        console.log(message);
         super.error(message, trace, context, isTimeDiffEnabled);
     }
     public static log(

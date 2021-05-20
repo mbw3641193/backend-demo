@@ -1,7 +1,8 @@
-import { Body, Controller, Get, Injectable, Logger, Post, Query, UseGuards, Request } from "@nestjs/common";
+import { Body, Controller, Get, Injectable, Post, Query, UseGuards, Request } from "@nestjs/common";
 import { BaseApiController } from "../../../framework/BaseApi/controller/base-api.controller";
 import { WeatherModel } from "../models/weather.model";
 import { WeatherService } from "../services";
+import { Logger } from "../../../framework/logging";
 
 @Injectable()
 @Controller('api/backend/v1/weather')
