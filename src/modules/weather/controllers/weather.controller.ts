@@ -1,14 +1,14 @@
 import { Body, Controller, Get, Injectable, Post, Query, UseGuards, Request } from "@nestjs/common";
 import { BaseApiController } from "../../../framework/BaseApi/controller/base-api.controller";
 import { WeatherModel } from "../models/weather.model";
-import { WeatherService } from "../services";
+import { WeatherFactoryService, WeatherService } from "../services";
 import { Logger } from "../../../framework/logging";
 
 @Injectable()
 @Controller('api/backend/v1/weather')
 export class WeatherController extends BaseApiController {
     constructor(
-        private readonly weatherService: WeatherService
+        private readonly weatherFactoryService: WeatherFactoryService
     ) {
         super();
     }
@@ -16,7 +16,8 @@ export class WeatherController extends BaseApiController {
     @Get('list')
     async getList(@Query() weather: WeatherModel) {
         try {
-            const data = await this.weatherService.getWeather();
+            console.log(weather);
+            const data = await this.weatherFactoryService.getWeather(weather.city);
             Logger.log(data);
             return this.ApiResultData(data);
         } catch (error) {

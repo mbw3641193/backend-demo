@@ -2,7 +2,6 @@ node_modules
 /logs
 /dist
 /.vs
-package-lock.json
 *.log
 resources_*
 /.vscode
