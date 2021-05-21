@@ -19,10 +19,10 @@ describe('The WeatherService', () => {
     weatherService = await module.get<WeatherService>(WeatherService);
   })
   describe('when input weather', () => {
-    it('should return a string', async () => {
+    it('should return a promise', async () => {
       expect(
-        await weatherService.getWeather('abc')
-      ).toEqual('string')
+        weatherFactoryService.getWeather('abc')
+      ).toBeInstanceOf(Promise)
     })
   })
 });

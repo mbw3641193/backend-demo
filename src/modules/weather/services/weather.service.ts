@@ -13,20 +13,16 @@ export class WeatherService {
     ) { }
 
     public async getWeather(cityName: string) {
-        try {
-            // city不能为空 或 不存在与对应枚举中
-            if (!cityName) return "city is null or is not included";
-            let data = await this.getWeatherApi(cityName);
-            // 对第三方数据模型进行处理
-            return {
-                city: cityName,
-                updatedTime: moment(new Date()).format("dddd HH:mm A"),
-                weather: data.list[0].weather[0].main,
-                temperature: data.list[0].main.temp,
-                wind: data.list[0].wind.speed
-            }
-        } catch (error) {
-            console.log(error);
+        // city不能为空 或 不存在与对应枚举中
+        if (!cityName) return "city is null or is not included";
+        let data = await this.getWeatherApi(cityName);
+        // 对第三方数据模型进行处理
+        return {
+            city: cityName,
+            updatedTime: moment(new Date()).format("dddd HH:mm A"),
+            weather: data.list[0].weather[0].main,
+            temperature: data.list[0].main.temp,
+            wind: data.list[0].wind.speed
         }
 
     }
