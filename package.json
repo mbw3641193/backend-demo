@@ -28,6 +28,7 @@
     "cos-nodejs-sdk-v5": "^2.6.2",
     "dotenv": "^8.2.0",
     "log4js": "^6.3.0",
+    "moment": "^2.29.1",
     "reflect-metadata": "^0.1.13",
     "request": "^2.88.2",
     "rimraf": "^3.0.2",

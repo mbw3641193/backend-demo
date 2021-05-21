@@ -9,17 +9,16 @@ export class WeatherFactoryService {
     ) { }
 
     public getWeather(city: string): Promise<any> {
-        console.log(this.weatherService)
         try {
             switch (city) {
                 case WEATHER_ENUM.SYDNEY:
-                    return this.weatherService.getWeatherApi(WEATHER_ENUM.SYDNEY);
+                    return this.weatherService.getWeather(WEATHER_ENUM.SYDNEY);
                 case WEATHER_ENUM.MELBOURNE:
-                    return this.weatherService.getWeatherApi(WEATHER_ENUM.MELBOURNE);
+                    return this.weatherService.getWeather(WEATHER_ENUM.MELBOURNE);
                 case WEATHER_ENUM.WOLLONGONG:
-                    return this.weatherService.getWeatherApi(WEATHER_ENUM.WOLLONGONG);
+                    return this.weatherService.getWeather(WEATHER_ENUM.WOLLONGONG);
                 default:
-                    return this.weatherService.getWeatherApi(null);
+                    return this.weatherService.getWeather(null);
             }
         } catch (error) {
             console.log(error);

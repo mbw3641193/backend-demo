@@ -14,20 +14,13 @@ export class WeatherController extends BaseApiController {
     }
 
     @Get('list')
-    async getList(@Query() weather: WeatherModel) {
+    async getWeatherList(@Query() weather: WeatherModel) {
         try {
-            console.log(weather);
             const data = await this.weatherFactoryService.getWeather(weather.city);
             Logger.log(data);
             return this.ApiResultData(data);
         } catch (error) {
             Logger.error(error);
         }
-
-
     }
-
-
-
-
 }
